@@ -1,3 +1,4 @@
+import { random } from 'lodash'
 import {generateRandomID, Component} from './utils'
 
 //Type parameter, reicbimos y regresamos el mismo tipo de dato
@@ -73,14 +74,13 @@ class App{
     } */
     @prop 
     static version: string
-    @enumerable(false)
-    public onInit(@param el: HTMLElement | null): void{
+    public onInit(el: HTMLElement | null): void{
         setInterval(function(){
         //This is called - Control flow
             if(el){
                 el.innerHTML = generateRandomID({
                     symbol :'#',
-                    length: 7
+                    length: random(7,10)
                 })
             }
         },1000);
