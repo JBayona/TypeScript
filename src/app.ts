@@ -49,6 +49,14 @@ function enumerable(isEnumerable: boolean){
     }
 }
 
+function prop(x, name){
+    console.log(x,name);
+}
+
+function param(x, name, index){
+    console.log(x, name, index);
+}
+
 //Podemos implementar classes e interfaces
 //class App extends Component implements Component2{
 //Decorator
@@ -63,8 +71,10 @@ class App{
     /*constructor(){
         this.id = 'app'
     } */
+    @prop 
+    static version: string
     @enumerable(false)
-    public onInit(el: HTMLElement | null): void{
+    public onInit(@param el: HTMLElement | null): void{
         setInterval(function(){
         //This is called - Control flow
             if(el){
